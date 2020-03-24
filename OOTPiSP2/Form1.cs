@@ -132,7 +132,7 @@ namespace OOTPiSP2
 
                 activeFigure.Draw(graph);
                 pbDraw.Image = tempBmp;
-
+                graph.Dispose();
             }
         }
 
