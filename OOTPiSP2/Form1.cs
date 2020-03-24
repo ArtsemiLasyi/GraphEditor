@@ -119,19 +119,18 @@ namespace OOTPiSP2
         {
             if ((lastClick.X >= 0) && (lastClick.Y >= 0))
             {
-                Bitmap tempBmp = bmp;
 
                 activeFigure.Points[pointsDrawed] = new Point(e.X, e.Y);
 
                 //Инициализация поверхности, пера и кисти
-                Graphics graph = Graphics.FromImage(tempBmp);
+                Graphics graph = Graphics.FromImage(bmp);
                 graph.Clear(pbDraw.BackColor);
                 figuresList.Draw(graph);
                 activeFigure.FigurePen = penColor;
                 activeFigure.SolidBrush = brushColor;
 
                 activeFigure.Draw(graph);
-                pbDraw.Image = tempBmp;
+                pbDraw.Image = bmp;
                 graph.Dispose();
             }
         }
