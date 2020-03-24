@@ -19,11 +19,11 @@ namespace OOTPiSP2
             isDynamic = false;
         }
 
-        public Triangle(Color _SolidBrush, Color _Pen, Point Point1, Point Point2, Point Point3)
+        public Triangle(Color solidbrush, Color pen, Point point1, Point point2, Point point3)
         {
-            Points = new Point[3] { Point1, Point2, Point3};
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
+            Points = new Point[3] { point1, point2, point3};
+            SolidBrush = solidbrush;
+            FigurePen = pen;
             isDynamic = false;
         }
 

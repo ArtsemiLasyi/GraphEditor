@@ -35,31 +35,32 @@ namespace OOTPiSP2
             }
         }
 
-        public Ellipse(Color _SolidBrush, Color _Pen, Point _Point1, Point _Point2)
+        public Ellipse(Color solidbrush, Color pen, Point point1, Point point2)
         {
             Points = new Point[2];
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
-            Points[0] = _Point1;
-            Points[1] = _Point2;
-        }
-
-        public Ellipse(Color _SolidBrush, Color _Pen, Point[] _Points)
-        {
-            Points = new Point[2];
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
-            Points[0] = _Points[0];
-            Points[1] = _Points[1];
+            SolidBrush = solidbrush;
+            FigurePen = pen;
+            Points[0] = point1;
+            Points[1] = point2;
             isDynamic = false;
         }
 
-        public Ellipse(Color _SolidBrush, Color _Pen, Point Point1, int width, int height)
+        public Ellipse(Color solidbrush, Color pen, Point[] points)
         {
             Points = new Point[2];
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
-            Points[0] = Point1;
+            SolidBrush = solidbrush;
+            FigurePen = pen;
+            Points[0] = points[0];
+            Points[1] = points[1];
+            isDynamic = false;
+        }
+
+        public Ellipse(Color solidbrush, Color pen, Point point1, int width, int height)
+        {
+            Points = new Point[2];
+            SolidBrush = solidbrush;
+            FigurePen = pen;
+            Points[0] = point1;
             Rad1 = width;
             Rad2 = height;
             isDynamic = false;

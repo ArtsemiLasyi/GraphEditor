@@ -11,12 +11,12 @@ namespace OOTPiSP2
     public class Line : Figure
     {
         new private Color SolidBrush;
-        public Line(Color _Pen, Point Point1, Point Point2)
+        public Line(Color pen, Point point1, Point point2)
         {
             Points = new Point[2];
-            FigurePen = _Pen;
-            Points[0] = Point1;
-            Points[1] = Point2;
+            FigurePen = pen;
+            Points[0] = point1;
+            Points[1] = point2;
             isDynamic = false;
         }
 

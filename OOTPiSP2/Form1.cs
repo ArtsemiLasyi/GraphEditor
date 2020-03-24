@@ -103,10 +103,7 @@ namespace OOTPiSP2
                     activeFigure = (Figure)Tools[cbTool.Text].Clone();
                     lastClick = new Point(-1, -1);
 
-                    Graphics graph = Graphics.FromImage(bmp);
-                    graph.Clear(pbDraw.BackColor);
-                    figuresList.Draw(graph);
-                    pbDraw.Image = bmp;
+                    UpdateBMP(bmp, figuresList);
                 }
             }
         }
@@ -156,10 +153,7 @@ namespace OOTPiSP2
             {
                 figuresList = (Figures)formatter.Deserialize(fs);
             }
-            Graphics graph = Graphics.FromImage(bmp);
-            graph.Clear(pbDraw.BackColor);
-            figuresList.Draw(graph);
-            pbDraw.Image = bmp;
+            UpdateBMP(bmp, figuresList);
         }
 
         private void bbSave_Click(object sender, EventArgs e)
@@ -178,23 +172,28 @@ namespace OOTPiSP2
             if (figuresList.figureList.Count > 0)
             {
                 figuresList.figureList.RemoveAt(figuresList.figureList.Count - 1);
-                Graphics graph = Graphics.FromImage(bmp);
-                graph.Clear(pbDraw.BackColor);
-                figuresList.Draw(graph);
-                pbDraw.Image = bmp;
+                UpdateBMP(bmp, figuresList);
             }
         }
 
-        private void DrawBMP(Bitmap _bmp, Figure _activeFigure)
+        private void DrawBMP(Bitmap bmp, Figure activefigure)
         {
             //Инициализация поверхности, пера и кисти
-            Graphics graph = Graphics.FromImage(_bmp);
-            _activeFigure.FigurePen = penColor;
+            Graphics graph = Graphics.FromImage(bmp);
+            activefigure.FigurePen = penColor;
             activeFigure.SolidBrush = brushColor;
 
-            _activeFigure.Draw(graph);
-            pbDraw.Image = _bmp;
+            activefigure.Draw(graph);
+            pbDraw.Image = bmp;
             graph.Dispose();
+        }
+
+        private void UpdateBMP(Bitmap bmp, Figures figureslist)
+        {
+            Graphics graph = Graphics.FromImage(bmp);
+            graph.Clear(pbDraw.BackColor);
+            figureslist.Draw(graph);
+            pbDraw.Image = bmp;
         }
     }
 }

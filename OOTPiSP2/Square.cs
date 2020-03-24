@@ -19,24 +19,25 @@ namespace OOTPiSP2
             Points[0] = new Point(0, 0);
             Width = 0;
             Height = 0;
+            isDynamic = false;
         }
 
-        public Square(Color _SolidBrush, Color _Pen, Point _Point1, int height)
+        public Square(Color solidbrush, Color pen, Point point1, int height)
         {
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
-            Points[0] = _Point1;
+            SolidBrush = solidbrush;
+            FigurePen = pen;
+            Points[0] = point1;
             Width = height;
             Height = height;
             isDynamic = false;
         }
 
-        public Square(Color _SolidBrush, Color _Pen, Point[] _Points)
+        public Square(Color solidbrush, Color pen, Point[] points)
         {
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
-            Points[0] = _Points[0];
-            Points[1] = _Points[1];
+            SolidBrush = solidbrush;
+            FigurePen = pen;
+            Points[0] = points[0];
+            Points[1] = points[1];
             isDynamic = false;
         }
 

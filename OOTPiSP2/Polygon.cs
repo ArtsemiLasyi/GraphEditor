@@ -19,11 +19,11 @@ namespace OOTPiSP2
             isDynamic = true;
         }
 
-        public Polygon(Color _SolidBrush, Color _Pen, Point[] _Points)
+        public Polygon(Color solidbrush, Color pen, Point[] points)
         {
-            Points = _Points;
-            SolidBrush = _SolidBrush;
-            FigurePen = _Pen;
+            Points = points;
+            SolidBrush = solidbrush;
+            FigurePen = pen;
             isDynamic = true;
         }
 
