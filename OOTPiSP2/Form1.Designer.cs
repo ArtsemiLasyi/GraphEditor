@@ -60,7 +60,7 @@
             this.pbDraw.Dock = System.Windows.Forms.DockStyle.Right;
             this.pbDraw.Location = new System.Drawing.Point(276, 0);
             this.pbDraw.Name = "pbDraw";
-            this.pbDraw.Size = new System.Drawing.Size(711, 552);
+            this.pbDraw.Size = new System.Drawing.Size(1111, 778);
             this.pbDraw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbDraw.TabIndex = 1;
             this.pbDraw.TabStop = false;
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(987, 552);
+            this.ClientSize = new System.Drawing.Size(1387, 778);
             this.Controls.Add(this.bbCancel);
             this.Controls.Add(this.bbSave);
             this.Controls.Add(this.bbOpen);
