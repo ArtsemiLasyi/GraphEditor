@@ -84,17 +84,17 @@ namespace OOTPiSP2
 
         override public void Draw(Graphics graph)
         {
-            graph.DrawRectangle(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
             graph.FillRectangle(new SolidBrush(SolidBrush), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
+            graph.DrawRectangle(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
         }
 
         public void Draw(Graphics graph, bool withFill)
         {
-            graph.DrawRectangle(new Pen(FigurePen), Math.Min(Points[0].X,Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
             if (withFill)
             {
                 graph.FillRectangle(new SolidBrush(SolidBrush), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
             }
+            graph.DrawRectangle(new Pen(FigurePen), Math.Min(Points[0].X,Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Width, Height);
         }
     }
 }

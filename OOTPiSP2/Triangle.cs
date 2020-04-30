@@ -36,8 +36,8 @@ namespace OOTPiSP2
         {
             if (!haveEmptyPoints())
             {
-                graph.DrawPolygon(new Pen(FigurePen), Points);
                 graph.FillPolygon(new SolidBrush(SolidBrush), Points);
+                graph.DrawPolygon(new Pen(FigurePen), Points);
             }
         }
 
@@ -45,11 +45,11 @@ namespace OOTPiSP2
         {
             if (!haveEmptyPoints())
             {
-                graph.DrawPolygon(new Pen(FigurePen), Points);
                 if (withFill)
                 {
                     graph.FillPolygon(new SolidBrush(SolidBrush), Points);
                 }
+                graph.DrawPolygon(new Pen(FigurePen), Points);
             }
         }
 

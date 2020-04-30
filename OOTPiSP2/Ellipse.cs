@@ -85,17 +85,17 @@ namespace OOTPiSP2
 
         override public void Draw(Graphics graph)
         {
-            graph.DrawEllipse(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
             graph.FillEllipse(new SolidBrush(SolidBrush), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
+            graph.DrawEllipse(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
         }
 
         public void Draw(Graphics graph, bool withFill)
         {
-            graph.DrawEllipse(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
             if (withFill)
             {
                 graph.FillEllipse(new SolidBrush(SolidBrush), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
             }
+            graph.DrawEllipse(new Pen(FigurePen), Math.Min(Points[0].X, Points[1].X), Math.Min(Points[0].Y, Points[1].Y), Rad1, Rad2);
         }
     }
 }

@@ -14,15 +14,15 @@ namespace OOTPiSP2
 {
     public partial class fmMain : Form
     {
+        Figures figuresList;
+        Figure activeFigure;
+
         const string LINE = "Линия";
         const string RECTANGLE = "Прямоугольник";
         const string SQUARE = "Квадрат";
         const string TRIANGLE = "Треугольник";
         const string POLYGON = "Многоугольник";
         const string ELLIPSE = "Эллипс";
-
-        Figures figuresList;
-        Figure activeFigure;
 
         Dictionary<string, Figure> Tools = new Dictionary<string, Figure>
         {
