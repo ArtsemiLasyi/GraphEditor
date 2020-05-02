@@ -42,6 +42,9 @@
             this.odOpenFile = new System.Windows.Forms.OpenFileDialog();
             this.sdSaveFile = new System.Windows.Forms.SaveFileDialog();
             this.bbCancel = new System.Windows.Forms.Button();
+            this.bbNewPlugin = new System.Windows.Forms.Button();
+            this.cbPlugins = new System.Windows.Forms.ComboBox();
+            this.lbPlagins = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDraw)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +127,7 @@
             // bbOpen
             // 
             this.bbOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bbOpen.Location = new System.Drawing.Point(0, 200);
+            this.bbOpen.Location = new System.Drawing.Point(0, 83);
             this.bbOpen.Name = "bbOpen";
             this.bbOpen.Size = new System.Drawing.Size(135, 32);
             this.bbOpen.TabIndex = 8;
@@ -135,7 +138,7 @@
             // bbSave
             // 
             this.bbSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bbSave.Location = new System.Drawing.Point(135, 200);
+            this.bbSave.Location = new System.Drawing.Point(135, 83);
             this.bbSave.Name = "bbSave";
             this.bbSave.Size = new System.Drawing.Size(135, 32);
             this.bbSave.TabIndex = 9;
@@ -162,12 +165,45 @@
             this.bbCancel.UseVisualStyleBackColor = true;
             this.bbCancel.Click += new System.EventHandler(this.bbCancel_Click);
             // 
+            // bbNewPlugin
+            // 
+            this.bbNewPlugin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bbNewPlugin.Location = new System.Drawing.Point(0, 278);
+            this.bbNewPlugin.Name = "bbNewPlugin";
+            this.bbNewPlugin.Size = new System.Drawing.Size(270, 32);
+            this.bbNewPlugin.TabIndex = 11;
+            this.bbNewPlugin.Text = "Подключить плагин";
+            this.bbNewPlugin.UseVisualStyleBackColor = true;
+            // 
+            // cbPlugins
+            // 
+            this.cbPlugins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlugins.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbPlugins.FormattingEnabled = true;
+            this.cbPlugins.Location = new System.Drawing.Point(0, 244);
+            this.cbPlugins.Name = "cbPlugins";
+            this.cbPlugins.Size = new System.Drawing.Size(270, 28);
+            this.cbPlugins.TabIndex = 12;
+            // 
+            // lbPlagins
+            // 
+            this.lbPlagins.AutoSize = true;
+            this.lbPlagins.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPlagins.Location = new System.Drawing.Point(-4, 221);
+            this.lbPlagins.Name = "lbPlagins";
+            this.lbPlagins.Size = new System.Drawing.Size(87, 20);
+            this.lbPlagins.TabIndex = 13;
+            this.lbPlagins.Text = "Плагины:";
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1387, 778);
+            this.Controls.Add(this.lbPlagins);
+            this.Controls.Add(this.cbPlugins);
+            this.Controls.Add(this.bbNewPlugin);
             this.Controls.Add(this.bbCancel);
             this.Controls.Add(this.bbSave);
             this.Controls.Add(this.bbOpen);
@@ -204,6 +240,9 @@
         private System.Windows.Forms.OpenFileDialog odOpenFile;
         private System.Windows.Forms.SaveFileDialog sdSaveFile;
         private System.Windows.Forms.Button bbCancel;
+        private System.Windows.Forms.Button bbNewPlugin;
+        private System.Windows.Forms.ComboBox cbPlugins;
+        private System.Windows.Forms.Label lbPlagins;
     }
 }
 

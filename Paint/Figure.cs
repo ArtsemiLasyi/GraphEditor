@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace OOTPiSP2
+namespace Paint
 {
     [Serializable]
     abstract public class Figure : ICloneable
@@ -17,7 +17,7 @@ namespace OOTPiSP2
         public Point[] Points;
         public bool IsDynamic { get { return isDynamic; } }
 
-        abstract public object Clone(); 
+        abstract public object Clone();
 
         abstract public void Draw(Graphics graph);
     }

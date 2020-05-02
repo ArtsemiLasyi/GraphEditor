@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Paint;
 
 namespace OOTPiSP2
 {
@@ -150,7 +151,14 @@ namespace OOTPiSP2
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(odOpenFile.FileName, FileMode.Open))
             {
-                figuresList = (Figures)formatter.Deserialize(fs);
+                try
+                {
+                    figuresList = (Figures)formatter.Deserialize(fs);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             UpdateBMP(bmp, figuresList);
         }
@@ -162,7 +170,14 @@ namespace OOTPiSP2
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(sdSaveFile.FileName, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, figuresList);
+                try
+                {
+                    formatter.Serialize(fs, figuresList);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(e.ToString());
+                }
             }
         }
 
