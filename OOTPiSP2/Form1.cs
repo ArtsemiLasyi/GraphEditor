@@ -159,7 +159,7 @@ namespace OOTPiSP2
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Не удалось открыть файл!");
                 }
             }
             UpdateBMP(bmp, figuresList);
