@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -15,6 +16,8 @@ namespace OOTPiSP2
 {
     public partial class fmMain : Form
     {
+        const string PLUGINS = @"PLUGINS";
+
         Figures figuresList;
         Figure activeFigure;
 
@@ -32,7 +35,8 @@ namespace OOTPiSP2
             [SQUARE] = new Square(),
             [TRIANGLE] = new Triangle(),
             [POLYGON] = new Polygon(),
-            [ELLIPSE] = new Ellipse()
+            [ELLIPSE] = new Ellipse(),
+            ["Трапеция"] = new Trapezium()
         };
 
         Color brushColor = Color.Black;        //Дефолтный цвет заливки фигуры
@@ -48,11 +52,8 @@ namespace OOTPiSP2
             InitializeComponent();
             figuresList = new Figures();
             bmp = new Bitmap(pbDraw.Width, pbDraw.Height);
-            cbTool.Items.Clear();
-            foreach (string key in Tools.Keys)
-            {
-                cbTool.Items.Add(key);
-            }
+            UpdateComboBox();
+            ShowPlugins();
         }
 
         private void bbPen_Click(object sender, EventArgs e)
@@ -149,6 +150,7 @@ namespace OOTPiSP2
             if (odOpenFile.ShowDialog() == DialogResult.Cancel)
                 return;
             BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Binder = new BinaryBinder();
             using (FileStream fs = new FileStream(odOpenFile.FileName, FileMode.Open))
             {
                 try
@@ -168,6 +170,7 @@ namespace OOTPiSP2
             if (sdSaveFile.ShowDialog() == DialogResult.Cancel)
                 return;
             BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Binder = new BinaryBinder();
             using (FileStream fs = new FileStream(sdSaveFile.FileName, FileMode.OpenOrCreate))
             {
                 try
@@ -190,6 +193,24 @@ namespace OOTPiSP2
             }
         }
 
+        private void bbNewPlugin_Click(object sender, EventArgs e)
+        {
+            if (!cbPlugins.Text.Equals(""))
+            {
+                Assembly asm = Assembly.LoadFrom(PLUGINS + "/" + cbPlugins.Text + ".dll");
+                cbPlugins.Items.Remove(cbPlugins.Text);
+                Type[] types = asm.GetTypes();
+                foreach (Type t in types)
+                {
+                    string typeName = t.Name;
+                    object obj = Activator.CreateInstance(t);
+                    Tools.Add(t.Name, (Figure)obj);
+                    UpdateComboBox();
+                }
+            }
+        }
+
+
         private void DrawBMP(Bitmap bmp, Figure activefigure)
         {
             //Инициализация поверхности, пера и кисти
@@ -208,6 +229,35 @@ namespace OOTPiSP2
             graph.Clear(pbDraw.BackColor);
             figureslist.Draw(graph);
             pbDraw.Image = bmp;
+        }
+
+        private void UpdateComboBox()
+        {
+            cbTool.Items.Clear();
+            foreach (string key in Tools.Keys)
+            {
+                cbTool.Items.Add(key);
+            }
+        }
+
+        private void ShowPlugins()
+        {
+            if (Directory.Exists(PLUGINS))
+            {
+                var dir = new DirectoryInfo(PLUGINS); // папка с файлами 
+
+                foreach (FileInfo file in dir.GetFiles())
+                {
+                    string fileName = Path.GetFileName(file.FullName);
+                    if (fileName.Contains(".dll"))
+                    {
+                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file.FullName);
+                        cbPlugins.Items.Add(fileNameWithoutExtension);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Отсутствует каталог " + PLUGINS + "!");
         }
     }
 }

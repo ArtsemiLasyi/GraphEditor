@@ -174,6 +174,7 @@
             this.bbNewPlugin.TabIndex = 11;
             this.bbNewPlugin.Text = "Подключить плагин";
             this.bbNewPlugin.UseVisualStyleBackColor = true;
+            this.bbNewPlugin.Click += new System.EventHandler(this.bbNewPlugin_Click);
             // 
             // cbPlugins
             // 
